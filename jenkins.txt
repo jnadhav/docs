@@ -1,0 +1,43 @@
+sudo cat /Users/Shared/Jenkins/Home/secrets/initialAdminPassword
+
+sudo vim /Users/Shared/Jenkins/Home/hudson.model.UpdateCenter.xml
+change https to http
+
+Starting/stopping the service : MacOS
+To manually start the daemon: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+To manually stop the daemon: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+
+Uninstall Jenkins: /Library/Application\ Support/Jenkins/Uninstall.command
+
+First Admin: jnadhav/Spouse@123
+http://localhost:8080/
+
+Expose your Jenkins server to the outside world
+https://ngrok.com/download
+
+Place it in home folder
+unzip Downloads/ngrok-stable-darwin-amd64.zip
+auth token : 1PHJKXAyJTkVapzCrKY3F6lIYFP_2rpuzJEJv9HxvXoPdhdQa
+./ngrok authtoken 1PHJKXAyJTkVapzCrKY3F6lIYFP_2rpuzJEJv9HxvXoPdhdQa
+./ngrok http 8080
+ngrok by @inconshreveable                                                                                                                                       (Ctrl+C to quit)
+                                                                                                                                                                                
+Session Status                online                                                                                                                                            
+Account                       jnadhav (Plan: Free)                                                                                                                              
+Version                       2.3.34                                                                                                                                            
+Region                        United States (us)                                                                                                                                
+Web Interface                 http://127.0.0.1:4040                                                                                                                             
+Forwarding                    http://8c89beec.ngrok.io -> http://localhost:8080                                                                                                 
+Forwarding                    https://8c89beec.ngrok.io -> http://localhost:8080                                                                                                
+                                                                                                                                                                                
+Connections                   ttl     opn     rt1     rt5     p50     p90                                                                                                       
+                              0       0       0.00    0.00    0.00    0.00       
+
+So, webhook will be http://8c89beec.ngrok.io/github-webhook                              
+
+
+github connectivity from Jenkins
+--------------------
+sudo -iu jenkins
+ssh-keygen
+git ls-remote -h https://github.com/jnadhav/micro-services.git HEAD
